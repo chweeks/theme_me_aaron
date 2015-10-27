@@ -60,9 +60,14 @@ angular.module('thememe', ['ionic'])
     });
   };
 
-  self.setThemeSong = function(email, password, passwordconf, songurl) {
-    var postData = { 'email':email, 'password': password, 'passwordconf': passwordconf, 'url': songurl };
-    $http.post('http://agile-waters-4177.herokuapp.com/sounds', postData, 'POST').then("Post worked", "You're a scumbag");
+  self.setThemeSong = function(songurl) {
+    var newUrl = { 'url': songurl };
+    $http.post('http://agile-waters-4177.herokuapp.com/sounds', newUrl, 'POST').then("Post worked", "You're a scumbag");
+  };
+
+  self.userSignUp = function(email, password, passwordconf) {
+    var postData = { 'email':email, 'password': password, 'password_confirmation': passwordconf};
+    $http.post('http://agile-waters-4177.herokuapp.com/users', postData, 'POST').then("Post worked", "You're a scumbag");
   };
 
   self.mainSong = function(id) {
@@ -71,7 +76,7 @@ angular.module('thememe', ['ionic'])
       url: 'http://agile-waters-4177.herokuapp.com/sounds/'+id
     }).then(function successCallback(response) {
       var data = angular.fromJson(response);
-      self.themeSong = 'https://w.soundcloud.com/player/?url=' + response.data.url;
+      self.themeSong = 'https://w.soundcloud.com/player/?url=' + response.data.url + '&auto_play=true';
     });
 
     self.trustSrc = function(src) {
