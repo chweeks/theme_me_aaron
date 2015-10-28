@@ -17,7 +17,7 @@ angular.module('thememe', ['ionic'])
     }
   });
 })
-.controller('themeMe', function($http, $sce) {
+.controller('themeMe', function($http, $sce, $window) {
   var self = this;
 
   self.searchResults = [];
@@ -68,6 +68,7 @@ angular.module('thememe', ['ionic'])
   self.userSignUp = function(email, password, passwordconf) {
     var postData = { 'email':email, 'password': password, 'password_confirmation': passwordconf};
     $http.post('http://agile-waters-4177.herokuapp.com/users', postData, 'POST').then("Post worked", "You're a scumbag");
+    $window.location.href = '/www/setsong.html';
   };
 
   self.mainSong = function(id) {

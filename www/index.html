@@ -31,30 +31,9 @@
           <input type="password" ng-model="passwordconf" placeholder="Password Confirmation">
         </label>
       </div>
-      <div class="list list-inset" id="pushdown">
-        <label class="item item-input" id="url">
-          <i class="icon ion-search placeholder-icon"></i>
-          <input type="text" ng-model="searchTerm" placeholder="Search for theme song">
-        </label>
-        <button class="button button-block button-positive" ng-click="me.searchSC(searchTerm)" id='searchSC'>
-          Search
-        </button>
-          <div class="list list-inset" ng-repeat="track in me.searchResults">
-            <div class="item">
-              <img ng-src="{{ track.artwork_url }}">
-              {{ track.title }}
-              <button class="button button-positive" ng-click="me.setThemeSong(track.permalink_url)">
-                Set Song
-              </button>
-            </div>
-          </div>
-        <button class="button button-block button-positive" ng-click="me.userSignUp(email, password, passwordconf)" id='signUp'>
-          Sign up
-        </button>
-        <button class="button button-block button-positive" ng-click="me.makeGet(5)" id='Get'>
-          Get me Amadeus
-        </button>
-      </div>
+      <button class="button button-block button-positive" ng-click="me.userSignUp(email, password, passwordconf)" id='signUp'>
+        Sign up
+      </button>
     </ion-content>
   </body>
 
